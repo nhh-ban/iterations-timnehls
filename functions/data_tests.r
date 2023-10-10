@@ -5,6 +5,8 @@
 # All tests are packed in a function test_stations_metadata that apples
 # all the aforementioned tests
 
+# A function that checks whether the columns of the
+# dataframe specified in df have the correct names
 test_stations_metadata_colnames <-
   function(df) {
     
@@ -17,6 +19,9 @@ test_stations_metadata_colnames <-
     }
   }
 
+# A function that tests whether there there is the right number
+# of rows in the dataframe df (i.e. the request yielded an appropriate
+# number of traffic sensors)
 test_stations_metadata_nrows <-
   function(df) {
     
@@ -32,6 +37,8 @@ test_stations_metadata_nrows <-
     }
   }
 
+# A function that checks whether all columns 
+# in the dataframe df are of the correct type.
 test_stations_metadata_coltypes <-
   function(df) {
     expected_coltypes <-
@@ -44,7 +51,9 @@ test_stations_metadata_coltypes <-
       print("FAIL: Columns do not have the correct specification")
     }
   }
-  
+
+# A function that checks whether there are at most 200 missing values
+# in the dataframe df.
 test_stations_metadata_nmissing <-
   function(df) {
     max_miss_vals <- 200
@@ -56,6 +65,8 @@ test_stations_metadata_nmissing <-
     }
   }
 
+# A function that checks whether the time in the latestData
+# column of the dataframe df is in UTC-time.
 test_stations_metadata_latestdata_timezone <-
   function(df) {
     
@@ -66,7 +77,7 @@ test_stations_metadata_latestdata_timezone <-
     }
   }
 
-
+# A function that runs all the above functions on the dataframe df.
 test_stations_metadata <- 
   function(df){
     test_stations_metadata_colnames(df)
