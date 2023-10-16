@@ -1,13 +1,10 @@
 library(httr)
 library(jsonlite)
-library(ggplot2)
 library(DescTools)
 library(tidyverse)
 library(magrittr)
 library(rlang)
-library(lubridate)
 library(anytime)
-library(readr)
 library(yaml)
 
 #### 1: Beginning of script
@@ -64,9 +61,9 @@ station_meta %$%
   transform_volumes() %>% 
   ggplot(aes(x=from, y=volume)) + 
   geom_line() + 
-  theme_classic() +
+  theme_bw() +
   ggtitle(paste("Hourly traffic data for the station", 
-                pull(station_meta, name))) +
+                pull(station_meta, name)), "Data from 2023") +
   xlab("Beginning of measurement") +
   ylab("Number of cars")
 
